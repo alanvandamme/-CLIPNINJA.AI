@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  clipninja-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      # Estas variáveis devem ser ajustadas ou carregadas de um serviço de segredos em produção
+      # Para desenvolvimento, copie do seu arquivo .env, mas NUNCA comite suas chaves reais!
+      OPENAI_API_KEY: "SEU_OPENAI_API_KEY_AQUI" # Substitua pela sua chave OpenAI
+      SUPABASE_URL: "SUA_URL_SUPABASE_AQUI"
+      SUPABASE_KEY: "SUA_CHAVE_SUPABASE_AQUI"
+      PORT: 3000
+      NODE_ENV: development
+      FRONTEND_URL: "http://localhost:3000"
+      CLOUDINARY_CLOUD_NAME: "SEU_CLOUD_NAME"
+      CLOUDINARY_API_KEY: "SEU_API_KEY"
+      CLOUDINARY_API_SECRET: "SEU_API_SECRET"
+      JWT_SECRET: "sua_chave_secreta_jwt_bem_forte_e_aleatoria"
+      TEMP_FILES_DIR: "/app/uploads"
+      PROCESSED_CLIPS_DIR: "/app/processed_clips"
+    volumes:
+      - .:/app
+      - /app/node_modules # Impede que o host sobrescreva node_modules no container
+      - clipninja_uploads:/app/uploads # Volume persistente para uploads
+      - clipninja_processed_clips:/app/processed_clips # Volume persistente para clipes processados
+    command: npm run dev
+    restart: always # Reinicia o serviço se ele falhar
+
+volumes:
+  clipninja_uploads:
+  clipninja_processed_clips:
