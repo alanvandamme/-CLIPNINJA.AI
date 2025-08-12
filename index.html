@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClipNinja.AI 🎭 - Gerador de Clipes Virais</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <meta name="description" content="ClipNinja.AI: Transforme seus vídeos em clipes virais otimizados para redes sociais com IA. Legendas automáticas e agendamento inteligente.">
+    <meta name="keywords" content="video viral, IA, edição de vídeo, TikTok, Instagram Reels, YouTube Shorts, Kwai, legendas, automação">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://clipninja.ai/">
+    <meta property="og:title" content="ClipNinja.AI 🎭 - Gerador de Clipes Virais">
+    <meta property="og:description" content="Transforme seus vídeos em clipes virais otimizados para redes sociais com IA. Legendas automáticas e agendamento inteligente.">
+    <meta property="og:image" content="https://clipninja.ai/social-banner.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://clipninja.ai/">
+    <meta property="twitter:title" content="ClipNinja.AI 🎭 - Gerador de Clipes Virais">
+    <meta property="twitter:description" content="Transforme seus vídeos em clipes virais otimizados para redes sociais com IA. Legendas automáticas e agendamento inteligente.">
+    <meta property="twitter:image" content="https://clipninja.ai/social-banner.jpg">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>ClipNinja.AI 🎭</h1>
+            <p>Sua IA para clipes virais.</p>
+        </div>
+    </header>
+
+    <main>
+        <section id="upload-section" class="container card">
+            <h2>Crie seu Clipe Viral em Segundos!</h2>
+            <p>Faça upload do seu vídeo e deixe a IA fazer a mágica.</p>
+            
+            <form id="upload-form" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="videoFile">Selecione seu vídeo:</label>
+                    <input type="file" id="videoFile" name="video" accept="video/mp4,video/quicktime,video/x-msvideo,video/webm" required>
+                    <small>Formatos aceitos: MP4, MOV, AVI, WebM (Máx. 500MB)</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="clipDuration">Duração do Clipe:</label>
+                    <select id="clipDuration" name="duration">
+                        <option value="30">30 Segundos (Ideal para TikTok/Reels)</option>
+                        <option value="60">60 Segundos (YouTube Shorts/Longer Reels)</option>
+                        <option value="90">1:30 Minutos (Clipe Estendido)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="subtitleLanguage">Idioma da Legenda:</label>
+                    <select id="subtitleLanguage" name="language">
+                        <option value="pt">Português</option>
+                        <option value="en">Inglês</option>
+                        <option value="es">Espanhol</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary" id="uploadBtn">GERAR CLIPES NINJA! ⚡</button>
+            </form>
+
+            <div id="message" class="hidden">
+                <p id="message-text"></p>
+                <ul id="progress-steps"></ul>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+            </div>
+
+        </section>
+
+        <section id="results-section" class="container card hidden">
+            <h2>🎉 Seus Clipes Virais estão Prontos!</h2>
+            <div id="summary">
+                <p><strong>Pontuação Viral Total:</strong> <span id="viralScore"></span></p>
+                <p><strong>Melhor Horário para Postar:</strong> <span id="optimalTime"></span></p>
+                <p><strong>Plataforma Mais Recomendada:</strong> <span id="bestPlatform"></span></p>
+            </div>
+            <h3>Clipes Gerados:</h3>
+            <div id="clip-list"></div>
+            <button class="btn btn-secondary" onclick="location.reload()">Gerar Novo Clipe</button>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 ClipNinja.AI 🎭. Todos os direitos reservados.</p>
+            <p>Feito com ❤️ e IA.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
